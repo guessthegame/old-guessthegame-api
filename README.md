@@ -1,4 +1,4 @@
-# Guess the game! [webapp]
+# Guess the game! [api]
 
 ## Play!
 
