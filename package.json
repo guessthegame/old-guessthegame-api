@@ -22,8 +22,7 @@
     "winston": "^3.2.1"
   },
   "scripts": {
-    "dev": "nodemon ./api/api.js",
-    "start": "node ./api/api.js",
+    "start": "nodemon ./api/api.js",
     "test": "./node_modules/mocha/bin/mocha --recursive ./tests --watch"
   },
   "devDependencies": {
