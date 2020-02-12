@@ -17,13 +17,12 @@
     "mailgun.js": "^2.0.1",
     "mysql2": "^1.5.3",
     "route-cache": "^0.4.4",
-    "sequelize": "^5.3.0",
+    "sequelize": "^5.15.1",
     "stemmer": "^1.0.2",
     "winston": "^3.2.1"
   },
   "scripts": {
-    "dev": "nodemon ./api/api.js",
-    "start": "node ./api/api.js",
+    "start": "nodemon ./api/api.js",
     "test": "./node_modules/mocha/bin/mocha --recursive ./tests --watch"
   },
   "devDependencies": {
