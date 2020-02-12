@@ -4,6 +4,9 @@
     "airbnb",
     "prettier"
   ],
+  "env": {
+    "node": true
+  },
   "rules": {
     "prettier/prettier": [
       "error",

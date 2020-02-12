@@ -3,4 +3,33 @@ const baseUrl = 'http://127.0.0.1';
 module.exports = {
   frontUrl: `${baseUrl}:3000`,
   apiUrl: `${baseUrl}:3001`,
-};
+  
+  secret: "CHANGE-ME-TO-REAL-SECRET",
+  api: {
+    port: 3001
+  },
+  database: {
+    database: "guessthegame",
+    user: "CHANGE-ME",
+    password: "CHANGE-ME"
+  },
+  logger: {
+    console: {
+      level: "debug"
+    }
+  },
+  cloudinary: {
+    apiKey: "CHANGE-ME",
+    apiSecret: "CHANGE-ME",
+    folder: "guess-the-game/CHANGE-ME",
+    imagesUrlPrefix: "CHANGE-ME"
+  },
+  mailgun: {
+    url: "CHANGE-ME",
+    host: "CHANGE-ME",
+    key: "CHANGE-ME"
+  },
+  recaptcha: {
+    secret: "CHANGE-ME"
+  }
+}
