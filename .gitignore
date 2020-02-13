@@ -10,7 +10,7 @@
 /build
 
 # config
-/config/server.json
+/config/index.js
 
 # uploads
 /uploads/*

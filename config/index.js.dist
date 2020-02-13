@@ -1,8 +1,5 @@
-const baseUrl = 'http://127.0.0.1';
-
 module.exports = {
-  frontUrl: `${baseUrl}:3000`,
-  apiUrl: `${baseUrl}:3001`,
+  frontUrl: 'http://127.0.0.1:3000',
   
   secret: "CHANGE-ME-TO-REAL-SECRET",
   api: {
