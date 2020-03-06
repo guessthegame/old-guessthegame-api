@@ -12,12 +12,9 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
   logging: str => logger.debug(str),
 
   dialect: 'mysql',
-  dialectOptions:
-    config.dialectOptions === undefined
-      ? {
-          socketPath: '/var/run/mysqld/mysqld.sock',
-        }
-      : config.dialectOptions,
+  dialectOptions: {
+    socketPath: config.socketPath,
+  },
 
   define: {
     paranoid: true,

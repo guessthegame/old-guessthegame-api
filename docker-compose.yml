@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+    api:
+        container_name: guessthegame-api
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - ${API_PORT}:${API_PORT}
+        links:
+            - mariadb
+        environment:
+            FRONT_URL: ${FRONT_URL}
+            API_SECRET: ${API_SECRET}
+            DB_NAME: ${DB_NAME}
+            DB_USER: ${DB_USER}
+            DB_PASSWORD: ${DB_PASSWORD}
+            DB_HOST: mariadb
+            DB_PORT: 3306
+            DB_SOCKET_PATH: ${DB_SOCKET_PATH}
+            CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+            CLOUDINARY_SECRET: ${CLOUDINARY_SECRET}
+            CLOUDINARY_FOLDER: ${CLOUDINARY_FOLDER}
+            CLOUDINARY_URL_PREFIX: ${CLOUDINARY_URL_PREFIX}
+            MAILGUN_URL: ${MAILGUN_URL}
+            MAILGUN_HOST: ${MAILGUN_HOST}
+            MAILGUN_PASSWORD: ${MAILGUN_PASSWORD}
+            MAILGUN_KEY: ${MAILGUN_KEY}
+            RECAPTCHA_SECRET: ${RECAPTCHA_SECRET}
+
+    mariadb:
+        container_name: guessthegame-mariadb
+        restart: always
+        image: mariadb:10.4
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - guessthegame-db:/var/lib/mysql
+
+    phpmyadmin:
+        container_name: guessthegame-pma
+        restart: always
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        links:
+            - mariadb
+        environment: 
+            PMA_HOST: mariadb
+
+volumes:
+    guessthegame-db:
+

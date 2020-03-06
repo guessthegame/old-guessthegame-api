@@ -10,7 +10,7 @@
 /build
 
 # config
-/config/index.js
+.env
 
 # uploads
 /uploads/*

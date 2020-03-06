@@ -1,14 +1,30 @@
-# Guess the game! [api]
+# Guess the game - api
 
-## Play!
+This repository hosts the nodejs API sources and docker-compose for the api, the database, and phpmyadmin.
 
-https://guess-the-game.com
+Game prod url: https://guess-the-game.com
 
-## web app
+## Install
 
-This is the back-end api repository.
+- Create an .env file, which will contain credentials for cloudinary, mailgun, google recapchta, and mariadb
 
-The front-end webapp repository is located at https://github.com/guessthegame/guessthegame-webapp
+```
+cp .env.example .env
+```
+
+- Fill in the .env file
+
+- Start the containers
+
+```
+docker-compose up -d
+```
+
+- Fill the database from backup
+
+```
+docker exec -i guessthegame-mariadb sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < /path/to/backup.sql
+```
 
 ## Contribute
 

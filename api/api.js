@@ -30,7 +30,10 @@ const crons = require('./crons/crons');
  * Create the app
  */
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: config.frontUrl,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(fileUpload());
 app.use('/api/uploads', express.static(`${__dirname}/../uploads`));
