@@ -1,3 +1,10 @@
+# v13.0.0 - Docker!
+
+- Split front and api code
+- Move front sources to new repository: guessthegame/guessthegame-front
+- Move api sources to new repository: guessthegame/guessthegame-api
+- Add Docker
+
 ### v12.2.4
 
 - Hide invitation to register on small screen (to reduce user frustration)
