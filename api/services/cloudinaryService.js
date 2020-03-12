@@ -55,5 +55,12 @@ function pathToUrl(path, options) {
   if (options && options.thumb) {
     params.push('w_320');
   }
-  return `${config.cloudinary.imagesUrlPrefix}/${params.join(',')}/${path}`;
+
+  const cloudinaryUrl = `${config.cloudinary.imagesUrlPrefix}/${params.join(',')}/${path}`;
+
+  if (!config.imageProxy || !config.imageProxy.enable) {
+    return cloudinaryUrl;
+  }
+
+  return `${config.imageProxy.url}/${encodeURI(cloudinaryUrl)}`;
 }

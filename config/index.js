@@ -24,6 +24,10 @@ module.exports = {
     folder: process.env.CLOUDINARY_FOLDER,
     imagesUrlPrefix: process.env.CLOUDINARY_URL_PREFIX,
   },
+  imageProxy: {
+    enable: process.env.IMGP_ENABLE || false,
+    url: process.env.IMGP_URL,
+  },
   mailgun: {
     url: process.env.MAILGUN_URL,
     host: process.env.MAILGUN_HOST,

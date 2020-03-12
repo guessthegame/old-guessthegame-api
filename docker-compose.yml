@@ -7,6 +7,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        image: guessthegame/guessthegame-api
         ports:
             - ${API_PORT:-3001}:${API_PORT:-3001}
         links:
@@ -24,6 +25,8 @@ services:
             CLOUDINARY_SECRET: ${CLOUDINARY_SECRET}
             CLOUDINARY_FOLDER: ${CLOUDINARY_FOLDER}
             CLOUDINARY_URL_PREFIX: ${CLOUDINARY_URL_PREFIX}
+            IMGP_ENABLE: ${IMGP_ENABLE}
+            IMGP_URL: ${IMGP_URL}
             MAILGUN_URL: ${MAILGUN_URL}
             MAILGUN_HOST: ${MAILGUN_HOST}
             MAILGUN_PASSWORD: ${MAILGUN_PASSWORD}
@@ -47,12 +50,22 @@ services:
         restart: always
         image: phpmyadmin/phpmyadmin
         ports:
-            - 8080:80
+            - ${PMA_PORT:-8000}:80
         links:
             - mariadb
         environment: 
             PMA_HOST: mariadb
 
+    imageproxy:
+        container_name: guessthegame-imgp
+        restart: always
+        image: willnorris/imageproxy:v0.8.0
+        command: -verbose -addr 0.0.0.0:8080 -cache /tmp/imageproxy -allowHosts res.cloudinary.com
+        ports:
+            - ${IMGP_PORT:-8001}:8080
+        volumes:
+            - guessthegame-imgp:/tmp/imageproxy
+
 volumes:
     guessthegame-db:
-
+    guessthegame-imgp:
