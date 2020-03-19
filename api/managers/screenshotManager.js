@@ -413,7 +413,7 @@ function getScreenshotNames(screenshot) {
 
 async function uploadScreenshotImage(localImagePath, screenshot) {
   if (!fs.existsSync(localImagePath)) {
-    throw new Error('Sorry, your image has been deleted, please re-upload it');
+    throw new Error("Désolé, l'image a été supprimée entre temps. Pouvez-vous la ré-uploader ? Merci :-)");
   }
 
   // Uploading image to cloudinary
