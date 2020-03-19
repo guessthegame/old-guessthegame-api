@@ -30,7 +30,6 @@ services:
             IMGP_URL: ${IMGP_URL}
             MAILGUN_URL: ${MAILGUN_URL}
             MAILGUN_HOST: ${MAILGUN_HOST}
-            MAILGUN_PASSWORD: ${MAILGUN_PASSWORD}
             MAILGUN_KEY: ${MAILGUN_KEY}
             RECAPTCHA_SECRET: ${RECAPTCHA_SECRET}
 
@@ -56,6 +55,7 @@ services:
             - mariadb
         environment: 
             PMA_HOST: mariadb
+            PMA_ABSOLUTE_URI: ${PMA_URL}
 
     imageproxy:
         container_name: guessthegame-imgp

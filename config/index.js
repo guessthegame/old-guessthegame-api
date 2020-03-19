@@ -31,7 +31,6 @@ module.exports = {
   mailgun: {
     url: process.env.MAILGUN_URL,
     host: process.env.MAILGUN_HOST,
-    password: process.env.MAILGUN_PASSWORD,
     key: process.env.MAILGUN_KEY
   },
   recaptcha: {
