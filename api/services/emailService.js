@@ -4,6 +4,7 @@ const config = require('../../config').mailgun;
 
 const { host } = config;
 const client = mailgun.client({
+  host,
   url: config.url,
   key: config.key,
   username: 'api',
@@ -37,7 +38,7 @@ async function sendMarketingUpdateEmail({ email, emailData }) {
 async function sendEmail({ to, subject, text, html }) {
   return client.messages
     .create(host, {
-      from: 'Guess The Game <no-reply@mg.guess-the-game.com>',
+      from: `Guess The Game <no-reply@${host}>`,
       to,
       subject,
       text,
