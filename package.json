@@ -12,7 +12,7 @@
     "cron": "^1.7.1",
     "double-metaphone": "^1.0.2",
     "express": "^4.16.3",
-    "express-fileupload": "^0.4.0",
+    "express-fileupload": "^1.1.9",
     "jsonwebtoken": "^8.3.0",
     "mailgun.js": "^2.0.1",
     "mysql2": "^1.5.3",
